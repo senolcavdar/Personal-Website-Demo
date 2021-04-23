@@ -1,6 +1,9 @@
 <?php
 include 'connect.php';
+ob_start();
+session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,21 +56,21 @@ include 'connect.php';
 <div class="alert alert-success alert-dismissible fade in" role="alert"  style="font-size: 15px; width: 400px; " >
 		<strong>Tebrikler!
 		<i> <?php echo $user = @$_GET['user_name']?></i>  !</strong>   Başarılı bir şekilde kayıt oldunuz. 
-		<button type="button" style="margin-top: -18px ;"   class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
+		<button type="button" style="margin-top: 4px ;"   class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
 		</button>
 </div>
-<?php }elseif($_GET['login'] == 'no') { ?>
+<?php }elseif(@$_GET['login'] == 'no') { ?>
 	<div class="alert alert-danger alert-dismissible fade in" role="alert"  style="font-size: 15px; width: 400px; " >
 		<strong>Hata!
 		<i> <?php echo $user = @$_GET['user_name']?></i>  !</strong>   Girilen bilgiler yanlış.
-		<button type="button" style="margin-top: -18px ;"   class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
+		<button type="button" style="margin-top: 4px ;"   class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
 		</button>
 </div>
-<?php }elseif($_GET['logout'] == 'ok') { ?>
+<?php }elseif(@$_GET['logout'] == 'ok') { ?>
 	<div class="alert alert-warning alert-dismissible fade in" role="alert"  style="font-size: 15px; width: 400px; " >
 		<strong>Çıkış Yapıldı!
 		<i> <?php echo $user = @$_GET['user_name']?></i>  !</strong>   Başarılı şekilde çıkış yapıldı.
-		<button type="button" style="margin-top: -18px ;"   class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
+		<button type="button" style="margin-top: 4px ;"   class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
 		</button>
 </div>
 <?php } ?>

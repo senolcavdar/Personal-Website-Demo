@@ -3,13 +3,22 @@ include './nedmin/connect.php';
 
 
 
-$sorgu = $db->prepare("SELECT * FROM site_settings");
+$sorgu = $db->prepare("SELECT * FROM site_settings WHERE settings_id=1");
 $sorgu->execute();
-
 $bilgiyi_cek = $sorgu->fetch(PDO::FETCH_ASSOC);
 
-?>
+$fetch_skill = $db -> prepare('SELECT*FROM about_me WHERE about_id=1');
+$fetch_skill -> execute();
+$fetch_s = $fetch_skill->fetch(PDO::FETCH_ASSOC);
 
+$fetch_main = $db -> prepare('SELECT*FROM main WHERE main_id=1');
+$fetch_main -> execute();
+$fetch_m = $fetch_main->fetch(PDO::FETCH_ASSOC);
+
+$fetch_contact = $db -> prepare('SELECT*FROM contact WHERE contact_id=1');
+$fetch_contact -> execute();
+$fetch_c = $fetch_contact->fetch(PDO::FETCH_ASSOC);
+?>
 
 
 <!DOCTYPE html>
@@ -70,7 +79,7 @@ $bilgiyi_cek = $sorgu->fetch(PDO::FETCH_ASSOC);
                         <div class="menu-container">
                             <ul class="nav navbar-nav navbar-nav-right">
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#body">ANA SAYFA </a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#about">HAKKIMDA</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#about"><?php echo $fetch_s['about_title'] ?></a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact">İLETİŞİM</a></li>
                             </ul>
                         </div>
@@ -88,20 +97,20 @@ $bilgiyi_cek = $sorgu->fetch(PDO::FETCH_ASSOC);
                 <div class="row">
                     <div class="col-sm-6 sm-margin-b-60">
                         <div class="margin-b-30">
-                            <h1 class="promo-block-title">ŞENOL <br/> ÇAVDAR</h1>
-                            <p class="promo-block-text">BİLGİSAYAR MÜHENDİSİLİĞİ ÖĞRENCİSİ</p>
+                            <h1 class="promo-block-title"><?php echo $fetch_m['main_title'] ?> <br/> <?php echo $fetch_m['main_title2'] ?></h1>
+                            <p class="promo-block-text"><?php echo $fetch_m['job_title'] ?></p>
                         </div>
-                        <a target="_blank" a href="https://www.instagram.com/ahmetsenolcavdar/" title="Instagram">
+                        <a target="_blank" a href="<?php echo $fetch_m['instagram'] ?>" title="Instagram">
                         <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="img/social_media/instagram.png" alt="resim yok"></a>
-                        <a target="_blank" a href="https://www.instagram.com/ahmetsenolcavdar/" title="Twitter">
+                        <a target="_blank" a href="<?php echo $fetch_m['twitter'] ?>" title="Twitter">
                         <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="img/social_media/twitter.png" alt="resim yok"></a>
-                        <a target="_blank" a href="https://www.facebook.com/ahmetsenol.cavdar/" title="Facebook">
+                        <a target="_blank" a href="<?php echo $fetch_m['facebook'] ?>" title="Facebook">
                         <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="img/social_media/facebook.png" alt="resim yok"></a>
-                        <a target="_blank" a href="https://www.linkedin.com/in/%C5%9Fenol-%C3%A7avdar-3a1a18161/" title="Linkedin">
+                        <a target="_blank" a href="<?php echo $fetch_m['linkedin'] ?>" title="Linkedin">
                         <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="img/social_media/linkedin.png" alt="resim yok"></a>
-                        <a target="_blank" a href="https://github.com/senolcavdar" title="Github">
+                        <a target="_blank" a href="<?php echo $fetch_m['github'] ?>" title="Github">
                         <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="img/social_media/github.png" alt="resim yok"></a>
-                        <a target="_blank" a href="https://discord.gg/VfX3Aqz5" title="Discord">
+                        <a target="_blank" a href="<?php echo $fetch_m['discord'] ?>" title="Discord">
                         <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="img/social_media/discord.png" alt="resim yok"></a>
                     </div>
                     <div class="col-sm-6">
@@ -128,33 +137,32 @@ $bilgiyi_cek = $sorgu->fetch(PDO::FETCH_ASSOC);
                         <div class="section-seperator margin-b-50">
                             <div class="margin-b-50">
                                 <div class="margin-b-30">
-                                    <h2>HAKKIMDA</h2>
-                                    <p>Ben Şenol ÇAVDAR. 7 Ağustos 2002 tarihinde Kayseri'de dünyaya geldim. Kayseri'de yaşıyorum. Eğitimime Refika Küçükçalık İlköğretim Okulu'nda başladım. Daha sonra Refika Küçükçalık Ortaokulu'nda eğitimime devam ettim. Aynı zamanda lise sınavlarına hazırlandım. Lise sınavları sonucunda Seyide Daloğlu Anadolu Lisesi'nde eğitimime devam ettim. Buradaki eğitimimi bitirip üniversite sınavlarına hazırlandım. Üniversite sınavı sonucunda İnönü Üniversitesi Bilgisayar Mühendisliği bölümünü kazandım ve burada eğitimime devam ediyorum.
-                                    </p>
+                                    <h2><?php echo $fetch_s['about_title'] ?></h2>
+                                    <p><?php echo $fetch_s['cv_title'] ?></p>
                                     <p></p>
                                 </div>
                                 <a target="_blank" a href="./img/cv/Şenol ÇAVDAR CV.pdf" class="btn-theme btn-theme-md btn-default-bg text-uppercase">CV'M İNDİR</a>
                             </div>
                         </div>
 
-                        <h2>YETENEKLERİM</h2>
+                        <h2><?php echo $fetch_s['skill_title'] ?></h2>
                         <!-- Progress Box -->
                         <div class="progress-box">
-                            <h5>HTML <span class="color-heading pull-right">10%</span></h5>
+                            <h5><?php echo $fetch_s['first_skill'] ?> <span class="color-heading pull-right"><?php echo $fetch_s['first_counter'] ?>%</span></h5>
                             <div class="progress">
-                                <div class="progress-bar bg-color-base" role="progressbar" data-width="10"></div>
+                                <div class="progress-bar bg-color-base" role="progressbar" data-width="<?php echo $fetch_s['first_counter'] ?>"></div>
                             </div>
                         </div>
                         <div class="progress-box">
-                            <h5>Java <span class="color-heading pull-right">4%</span></h5>
+                            <h5><?php echo $fetch_s['second_skill'] ?> <span class="color-heading pull-right"><?php echo $fetch_s['second_counter'] ?>%</span></h5>
                             <div class="progress">
-                                <div class="progress-bar bg-color-base" role="progressbar" data-width="4"></div>
+                                <div class="progress-bar bg-color-base" role="progressbar" data-width="<?php echo $fetch_s['second_counter'] ?>"></div>
                             </div>
                         </div>
                         <div class="progress-box">
-                            <h5>JavaScript <span class="color-heading pull-right">5%</span></h5>
+                            <h5><?php echo $fetch_s['third_skill'] ?> <span class="color-heading pull-right"><?php echo $fetch_s['third_counter'] ?>%</span></h5>
                             <div class="progress">
-                                <div class="progress-bar bg-color-base" role="progressbar" data-width="5"></div>
+                                <div class="progress-bar bg-color-base" role="progressbar" data-width="<?php echo $fetch_s['third_counter'] ?>"></div>
                             </div>
                         </div>
                         <!-- End Progress Box -->
@@ -166,10 +174,14 @@ $bilgiyi_cek = $sorgu->fetch(PDO::FETCH_ASSOC);
         <!-- End About -->
 
         <!-- Promo Banner -->
-        <div class="promo-banner parallax-window" >
-        <img src="./img/1920x1080/01.jpg" alt="" style="width: 60%">
-         </div>
+        <div class="promo-banner parallax-window" data-parallax="scroll" data-image-src="img/1920x1080/3.jpg" style="padding-top: 200px">
+            <div class="container-sm content-lg" >
+                <h2 class="promo-banner-title"></h2>
+                <p class="promo-banner-text"></p>
+            </div>
+        </div>
         <!-- End Promo Banner -->
+        
 
         <!-- Contact -->
         <div id="contact">
@@ -177,8 +189,8 @@ $bilgiyi_cek = $sorgu->fetch(PDO::FETCH_ASSOC);
                 <div class="container content-lg">
                     <div class="row margin-b-40">
                         <div class="col-sm-6">
-                           <h2>İLETİŞİM</h2>
-                            <p>Benimle aşağıda belirtilen şekillerle iletişime geçebilirsiniz.</p>
+                           <h2><?php echo $fetch_c['contact_title'] ?></h2>
+                            <p><?php echo $fetch_c['content'] ?></p>
                         </div>
                     </div>
                     <!--// end row -->
@@ -186,15 +198,15 @@ $bilgiyi_cek = $sorgu->fetch(PDO::FETCH_ASSOC);
                     <div class="row">
                         <div class="col-md-3 col-xs-6 md-margin-b-30">
                             <h4>YERLEŞKE</h4>
-                            <a target="_blank" a href="https://www.google.com/maps/place/38%C2%B043'38.7%22N+35%C2%B029'36.9%22E/@38.7274049,35.4920344,17z/data=!3m1!4b1!4m14!1m7!3m6!1s0x152b0e1d3fa4a74f:0x84bd8c4d5a4c2da7!2sKayseri!3b1!8m2!3d38.720489!4d35.482597!3m5!1s0x0:0x0!7e2!8m2!3d38.7274017!4d35.4935822">Kayseri,TÜRKİYE</a>
+                            <a target="_blank" a href="<?php echo $fetch_c['addresss_link'] ?>"><?php echo $fetch_c['addresss'] ?></a>
                         </div>
                         <div class="col-md-3 col-xs-6 md-margin-b-30">
                             <h4>TELEFON</h4>
-                            <a href="tel:+905073856542">+90 507 385 65 42</a>
+                            <a href="tel:+905073856542"><?php echo $fetch_c['gsm'] ?></a>
                         </div>
                         <div class="col-md-3 col-xs-6">
                             <h4>E-POSTA</h4>
-                            <a href="mailto:ahmetsenolcavdar@gmail.com">ahmetsenolcavdar@gmail.com</a>
+                            <a href="<?php echo $fetch_c['email'] ?>"><?php echo $fetch_c['email'] ?></a>
                         </div>
                     </div>
                     <!--// end row -->
@@ -213,7 +225,7 @@ $bilgiyi_cek = $sorgu->fetch(PDO::FETCH_ASSOC);
                         <img class="footer-logo" style="width: 120px; padding: -50px ; margin-top: 15px;" src="img/logo.png" alt="resim yok">
                     </div>
                     <div class="col-xs-6 text-right sm-text-left" style="margin-top: 38px">
-                        <p class="margin-b-0"><a class="fweight-700" >ŞENOL ÇAVDAR</a></p>
+                        <p class="margin-b-0"><a class="fweight-700" ><?php echo $fetch_m['main_title'] ?> <?php echo $fetch_m['main_title2'] ?></a></p>
                     </div>
                 </div>
                 <!--// end row -->
@@ -248,3 +260,4 @@ $bilgiyi_cek = $sorgu->fetch(PDO::FETCH_ASSOC);
     </body>
     <!-- END BODY -->
 </html>
+

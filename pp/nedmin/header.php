@@ -2,14 +2,11 @@
 ob_start();
 session_start();
 include 'connect.php';
-
 $user_name = $_SESSION['user_name'];
 
-$query = $db -> prepare("SELECT * FROM user WHERE user_name='$user_name'");
+$query = $db->prepare("SELECT * FROM user WHERE user_name='$user_name'");
 $query->execute();
-
-$fetch = $sorgu->fetch(PDO::FETCH_ASSOC);
-
+$fetch = $query->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +46,7 @@ $fetch = $sorgu->fetch(PDO::FETCH_ASSOC);
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Yönetim Paneli</span></a>
+              <a href="./index.php" class="site_title"><i class="fa fa-paw"></i> <span>Yönetim Paneli</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -76,8 +73,8 @@ $fetch = $sorgu->fetch(PDO::FETCH_ASSOC);
                   <li><a href="index.php" ><i class="fa fa-home"></i> Ana Sayfa </a></li>
                   <li><a><i class="fa fa-cog"></i> Ayarlar <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="about_us.php">Hakkımda</a></li>
-                      <li><a href="skills.php">Yeteneklerim</a></li>
+                      <li><a href="about_us.php">Ana Sayfa</a></li>
+                      <li><a href="skills.php">Hakkımda</a></li>
                       <li><a href="contact.php">İletişim</a></li>
                       
                     </ul>
@@ -107,8 +104,8 @@ $fetch = $sorgu->fetch(PDO::FETCH_ASSOC);
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="settings.php"> Ayarlar</a></li>
-
+                    <li><a href="settings.php"> Ayarlar </a></li>
+                    <li><a href="password.php"> Şifre Değiştirme </a></li>
                     <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Çıkış</a></li>
                   </ul>
                 </li>

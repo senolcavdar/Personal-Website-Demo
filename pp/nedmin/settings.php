@@ -1,5 +1,15 @@
 <?php
 include 'header.php';
+
+$check_settings = $db->prepare("SELECT*FROM site_settings");
+$check_settings->execute();
+$control_settings = $check_settings->rowCount();
+
+$fetch_settings = $db -> prepare("SELECT * FROM site_settings WHERE settings_id=1");
+$fetch_settings -> execute();
+
+$fetch = $fetch_settings->fetch(PDO::FETCH_ASSOC);
+
 ?>
 
 <!-- page content -->
@@ -17,44 +27,49 @@ include 'header.php';
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-
-<form class="form-horizontal form-label-left" novalidate>
-  <div class="item form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Eski Şifre</label>
+                <?php if(@$_GET['insert_se'] == 'ok'){ ?>
+                <div class="alert alert-success alert dismissible fade in" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>
+                  </button>
+                  <strong>Başarılı!</strong>Veriler başarılı bir şekilde kaydedildi.
+                </div>
+                <?php } elseif(@$_GET['insert_se'] == 'no'){ ?>
+                <div class="alert alert-success alert dismissible fade in" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>
+                  </button>
+                  <strong>Hata!</strong>Bir sorunla karşılaşıldı.
+                </div>
+                <?php } elseif(@$_GET['update_se'] == 'ok'){ ?>
+                <div class="alert alert-success alert dismissible fade in" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>
+                  </button>
+                  <strong>Başarılı!</strong>Veriler başarılı bir şekilde güncellendi.
+                </div>
+                <?php } elseif(@$_GET['update_se'] == 'no'){ ?>
+                <div class="alert alert-success alert dismissible fade in" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>
+                  </button>
+                  <strong>Hata!</strong>Bir sorunla karşılaşıldı.
+                </div>
+                <?php } ?>
+<form class="form-horizontal form-label-left" action="process.php" method="POST">
+<div class="item form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Sayfa Başlığı</label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-    <input type="password"  name="password"  required="required" class="form-control col-md-7 col-xs-12">
+    <input type="text"  name="site_title" value='<?php echo $fetch['site_title'] ?>' required="required" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
-  <div class="item form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Yeni Şifre</label>
+<div class="item form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">Sayfa Logosu </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-    <input type="password"  name="password"  required="required" class="form-control col-md-7 col-xs-12">
-    </div>
-  </div>
-  
-  <div class="item form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Yeni Şifre Tekrarı </label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="password"  name="rpassword"  required="required" class="form-control col-md-7 col-xs-12">
-    </div>
-  </div>
-  <div class="item form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">Profil Fotoğrafı </label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="file"  name="foto"  required="required" class="form-control col-md-7 col-xs-12">
+      <input type="file"  name="logo_pic" value='<?php echo $fetch['logo_pic'] ?>' required="required" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
   <hr>
   <div class="item form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">Sayfa Logosu </label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">Profil Fotoğrafı </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="file"  name="foto"  required="required" class="form-control col-md-7 col-xs-12">
-    </div>
-  </div>
-  <div class="item form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Sayfa Başlığı</label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-    <input type="text"  name="site_title"  required="required" class="form-control col-md-7 col-xs-12">
+      <input type="file"  name="profil_foto"  required="required" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
 
@@ -62,7 +77,11 @@ include 'header.php';
   <div class="form-group">
     <div class="col-md-6 col-md-offset-3">
       <button type="reset" class="btn btn-round btn-success">Temizle</button>
-      <button id="send" type="submit" class="btn btn-round btn-danger" name="about_us_save" >Gönder</button>
+      <?php if ($control_settings == 1) { ?>
+                  <button type="submit" class="btn btn-round btn-success" name="update_settings">Güncelle</button>
+                <?php } else { ?>
+                  <button type="submit" class="btn btn-round btn-warning" name="insert_settings">Ekle</button>
+                <?php } ?>
     </div>
   </div>
 </form>
