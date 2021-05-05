@@ -50,6 +50,7 @@ if (isset($_POST['signup'])) {
         header("Location: register.php?register=inequal");
     }
 }
+
 //Admin  giriş
 if (isset($_POST['login'])) {
     $user_name = $_POST['user_name'];
@@ -274,17 +275,25 @@ if(isset($_POST['insert_settings'])){
 // settings update
 if(isset($_POST['update_settings'])){
     $site_title = $_POST['site_title'];
-    $logo_pic = $_POST['logo_pic'];
-    $profil_foto = $_POST['profil_foto'];
+    $logo = $_POST['logo'];
+    $passnew = $_POST['passnew'];
+    $rpassnew = $_POST['rpassnew'];
     
+    if ($passnew == $rpassnew) {
+        if (strlen($passnew) >=6) {
+            $passn = sha1($passnew);
+            $newpassword = $db->prepare("UPDATE user SET password='$passn' ");
+            $updatepass = $newpassword->execute();
+        }
+    }
+
     $update_settings = $db -> prepare("UPDATE site_settings SET
     site_title = '$site_title',
-    logo_pic = '$logo_pic',
-    profil_foto = '$profil_foto' WHERE settings_id=1
+    logo = '$logo' WHERE settings_id=1
     ");
 
     $update_se = $update_settings -> execute();
-    if ($update_se) {
+    if ($update_se and $updatepass) {
         header("Location: settings.php?update_se=ok");
     } else {
         header("Location: settings.php?update_se=no");

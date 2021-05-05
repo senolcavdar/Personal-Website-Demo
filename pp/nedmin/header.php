@@ -105,7 +105,6 @@ $fetch = $query->fetch();
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="settings.php"> Ayarlar </a></li>
-                    <li><a href="password.php"> Şifre Değiştirme </a></li>
                     <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Çıkış</a></li>
                   </ul>
                 </li>

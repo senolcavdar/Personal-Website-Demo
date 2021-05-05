@@ -80,9 +80,8 @@ include 'connect.php';
                     <button type="button" style="margin-top: 3px;" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
                     </button>
         </div> 
-
-
         <?php } ?>
+		
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
 						<input class="input100" type="text" name="user_name" placeholder="Kullanıcı Adı">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>

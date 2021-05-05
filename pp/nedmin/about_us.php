@@ -33,7 +33,7 @@ $fetch = $fetch_main->fetch(PDO::FETCH_ASSOC);
                   <strong>Başarılı!</strong>Veriler başarılı bir şekilde kaydedildi.
                 </div>
                 <?php } elseif(@$_GET['insert_m'] == 'no'){ ?>
-                <div class="alert alert-success alert dismissible fade in" role="alert">
+                <div class="alert alert-warning alert dismissible fade in" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>
                   </button>
                   <strong>Hata!</strong>Bir sorunla karşılaşıldı.
@@ -45,7 +45,7 @@ $fetch = $fetch_main->fetch(PDO::FETCH_ASSOC);
                   <strong>Başarılı!</strong>Veriler başarılı bir şekilde güncellendi.
                 </div>
                 <?php } elseif(@$_GET['update_m'] == 'no'){ ?>
-                <div class="alert alert-success alert dismissible fade in" role="alert">
+                <div class="alert alert-warning alert dismissible fade in" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>
                   </button>
                   <strong>Hata!</strong>Bir sorunla karşılaşıldı.
