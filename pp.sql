@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 05 May 2021, 23:23:27
+-- Üretim Zamanı: 09 May 2021, 23:54:58
 -- Sunucu sürümü: 10.4.18-MariaDB
 -- PHP Sürümü: 8.0.3
 
@@ -46,7 +46,7 @@ CREATE TABLE `about_me` (
 --
 
 INSERT INTO `about_me` (`about_id`, `about_title`, `cv_title`, `cv`, `skill_title`, `first_skill`, `first_counter`, `second_skill`, `second_counter`, `third_skill`, `third_counter`) VALUES
-(1, 'HAKKIMDA', 'Ben Şenol ÇAVDAR. 7 Ağustos 2002 tarihinde Kayseride dünyaya geldim. Kayseride yaşıyorum. Eğitimime Refika Küçükçalık İlköğretim Okulunda başladım. Daha sonra Refika Küçükçalık Ortaokulunda eğitimime devam ettim. Aynı zamanda lise sınavlarına hazırlandım. Lise sınavları sonucunda Seyide Daloğlu Anadolu Lisesinde eğitimime devam ettim. Buradaki eğitimimi bitirip üniversite sınavlarına hazırlandım. Üniversite sınavı sonucunda İnönü Üniversitesi Bilgisayar Mühendisliği bölümünü kazandım ve burada eğitimime devam ediyorum.\r\n\r\n', 'yason burnu.jpg', 'YETENEKLERİM', 'HTML', '70', 'PHP ', '70', 'JAVA', '70');
+(1, 'HAKKIMDA', 'Ben Şenol ÇAVDAR. 7 Ağustos 2002 tarihinde Kayseride dünyaya geldim. Kayseride yaşıyorum. Eğitimime Refika Küçükçalık İlköğretim Okulunda başladım. Daha sonra Refika Küçükçalık Ortaokulunda eğitimime devam ettim. Aynı zamanda lise sınavlarına hazırlandım. Lise sınavları sonucunda Seyide Daloğlu Anadolu Lisesinde eğitimime devam ettim. Buradaki eğitimimi bitirip üniversite sınavlarına hazırlandım. Üniversite sınavı sonucunda İnönü Üniversitesi Bilgisayar Mühendisliği bölümünü kazandım ve burada eğitimime devam ediyorum.', 'logo.png', 'YETENEKLERİM', 'HTML', '70', 'PHP', '70', 'JAVA', '50');
 
 -- --------------------------------------------------------
 
@@ -69,7 +69,7 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`contact_id`, `contact_title`, `content`, `addresss`, `addresss_link`, `gsm`, `email`) VALUES
-(1, 'İLETİŞİM', 'Benimle aşağıda belirtilen şekillerle iletişime geçebilirsiniz.', 'Kayseri,TÜRKİYE', 'https://www.google.com/maps/place/Kayseri/@38.7233174,35.3301028,11z/data=!3m1!4b1!4m5!3m4!1s0x152b0e1d3fa4a74f:0x84bd8c4d5a4c2da7!8m2!3d38.720489!4d35.482597', '05073856542', 'ahmetsenolcavdar@gmail.com');
+(1, 'İLETİŞİM', 'Benimle aşağıda belirtilen şekillerle iletişime geçebilirsiniz.', 'Kayseri,TÜRKİYE', 'https://www.google.com/maps?client=opera-gx&q=kayseri&oe=UTF-8&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjY1pXllLXwAhUEKuwKHX51CfMQ_AUoAXoECAEQAw', '05073856542', 'ahmetsenolcavdar@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE `main` (
 --
 
 INSERT INTO `main` (`main_id`, `main_title`, `main_title2`, `job_title`, `instagram`, `twitter`, `facebook`, `linkedin`, `github`, `discord`) VALUES
-(1, 'Şenol', 'ÇAVDAR', 'Bilgisayar Mühendisi', 'https://www.instagram.com/ahmetsenolcavdar/', 'dasdsadsadsadasa', 'https://www.facebook.com/ahmetsenol.cavdar/', 'https://www.linkedin.com/in/%C5%9Fenol-%C3%A7avdar', 'https://github.com/senolcavdar', 'https://discord.gg/gBKDUqtn');
+(1, 'Şenol', 'ÇAVDAR', 'Bilgisayar Mühendisi ', 'https://www.instagram.com/ahmetsenolcavdar/', 'dasdsadsadsada', 'https://www.facebook.com/ahmetsenol.cavdar/', 'https://www.linkedin.com/in/şenol-çavdar-3a1a18161', 'https://github.com/senolcavdar', 'https://discord.gg/gBKDUqtn');
 
 -- --------------------------------------------------------
 
@@ -114,7 +114,7 @@ CREATE TABLE `site_settings` (
 --
 
 INSERT INTO `site_settings` (`settings_id`, `site_title`, `logo`) VALUES
-(1, 'Şenol', 'ödev.PNG');
+(1, 'Şenol Çavdar', 'logo.png');
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_name`, `email`, `password`) VALUES
-(18, 'senol', 'senol@senol.com', '1de45edb95157e2cf2fe73a89bcf91b4337e30bb');
+(18, 'senol', 'senol@senol.com', '63d07e3daabf108033a0a8637a02552abe2031d7');
 
 --
 -- Dökümü yapılmış tablolar için indeksler

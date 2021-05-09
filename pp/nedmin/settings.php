@@ -52,6 +52,35 @@ $fetch = $fetch_settings->fetch(PDO::FETCH_ASSOC);
               <strong>Hata!</strong>Bir sorunla karşılaşıldı.
             </div>
           <?php } ?>
+          <?php if (@$_GET['updatepass'] == 'no'){?>
+            <div class="alert alert-danger alert-dismissible fade in" role="alert"  style="width: 400px; font-size: 15px; margin-top: -10px; margin-bottom: 25px;">
+                    <strong>Hata!</strong>  Girilen şifre eski şifre ile aynı!
+                    <button type="button" style="margin-top: 3px;" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
+                    </button>
+        </div>
+        <?php } elseif(@$_GET['updatepass'] == 'hasadmin'){?>
+            <div class="alert alert-danger alert-dismissible fade in" role="alert"  style="width: 400px; font-size: 15px; margin-top: -10px; margin-bottom: 25px;">
+                    <strong>Hata!</strong>  Bu kayıt mevcut.
+                    <button type="button" style="margin-top: 3px;" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
+                    </button>
+        </div> 
+
+        <?php } elseif (@$_GET['updatepass'] == 'lowchar'){?>
+            <div class="alert alert-danger alert-dismissible fade in" role="alert"  style="width: 400px; font-size: 15px; margin-top: -10px; margin-bottom: 25px;">
+                    <strong>Hata!</strong> Şifreniz 6 karakterden kısa.
+                    <button type="button" style="margin-top: 3px;" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
+                    </button>
+        </div> 
+
+
+        <?php } elseif (@$_GET['updatepass'] == 'inequal'){ ?>
+            <div class="alert alert-danger alert-dismissible fade in" role="alert"  style="width: 400px; font-size: 15px; margin-top: -10px; margin-bottom: 25px;">
+                    <strong>Hata!</strong> Yeni şifre ve yeni şifre tekrarı aynı değil.
+                    <button type="button" style="margin-top: 3px;" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
+                    </button>
+        </div> 
+        <?php } ?>
+
           <form class="form-horizontal form-label-left" action="process.php" method="POST">
             <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Sayfa Başlığı</label>
@@ -66,6 +95,13 @@ $fetch = $fetch_settings->fetch(PDO::FETCH_ASSOC);
               </div>
             </div>
             <hr>
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Eski Şifre</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="password" name="password" required="required" class="form-control col-md-7 col-xs-12">
+              </div>
+            </div>
+
             <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Yeni Şifre</label>
               <div class="col-md-6 col-sm-6 col-xs-12">

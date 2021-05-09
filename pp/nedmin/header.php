@@ -1,6 +1,9 @@
 <?php
 ob_start();
 session_start();
+if(!isset($_SESSION['user_name'])){
+  header("Location: login.php");
+}
 include 'connect.php';
 $user_name = $_SESSION['user_name'];
 
@@ -18,7 +21,7 @@ $fetch = $query->fetch();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>ŞÇ Admin Panel </title>
 
     <!-- Bootstrap -->
     <link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -74,9 +77,8 @@ $fetch = $query->fetch();
                   <li><a><i class="fa fa-cog"></i> Ayarlar <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="about_us.php">Ana Sayfa</a></li>
-                      <li><a href="skills.php">Hakkımda</a></li>
+                      <li><a href="skills.php">Hakkımda ve Yeteneklerim</a></li>
                       <li><a href="contact.php">İletişim</a></li>
-                      
                     </ul>
                   </li>
 

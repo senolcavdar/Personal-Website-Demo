@@ -35,18 +35,18 @@ $fetch_c = $fetch_contact->fetch(PDO::FETCH_ASSOC);
 
         <!-- GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
-        <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css"/>
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="./assets/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css"/>
+        <link href="./assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
         <!-- PAGE LEVEL PLUGIN STYLES -->
-        <link href="css/animate.css" rel="stylesheet">
-        <link href="vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+        <link href="./assets/css/animate.css" rel="stylesheet">
+        <link href="./assets/vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css"/>
 
         <!-- THEME STYLES -->
-        <link href="css/layout.min.css" rel="stylesheet" type="text/css"/>
+        <link href="./assets/css/layout.min.css" rel="stylesheet" type="text/css"/>
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="img/logo.png"/>
+        <link rel="shortcut icon" href=".assets/img/logo.png"/>
     </head>
     <!-- END HEAD -->
 
@@ -68,7 +68,7 @@ $fetch_c = $fetch_contact->fetch(PDO::FETCH_ASSOC);
                         <!-- Logo -->
                         <div class="logo">
                             <a class="logo-wrap" href="#body">
-                                <img class="logo-img" style="width: 100px; padding: -40px;" src="./img/logo.png" alt="resim yok">
+                                <img class="logo-img" style="width: 100px; padding: -40px;" src="./assets/img/logo.png" alt="resim yok">
                             </a>
                         </div>
                         <!-- End Logo -->
@@ -101,21 +101,21 @@ $fetch_c = $fetch_contact->fetch(PDO::FETCH_ASSOC);
                             <p class="promo-block-text"><?php echo $fetch_m['job_title'] ?></p>
                         </div>
                         <a target="_blank" a href="<?php echo $fetch_m['instagram'] ?>" title="Instagram">
-                        <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="img/social_media/instagram.png" alt="resim yok"></a>
+                        <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="./assets/img/social_media/instagram.png" alt="resim yok"></a>
                         <a target="_blank" a href="<?php echo $fetch_m['twitter'] ?>" title="Twitter">
-                        <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="img/social_media/twitter.png" alt="resim yok"></a>
+                        <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="./assets/img/social_media/twitter.png" alt="resim yok"></a>
                         <a target="_blank" a href="<?php echo $fetch_m['facebook'] ?>" title="Facebook">
-                        <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="img/social_media/facebook.png" alt="resim yok"></a>
+                        <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="./assets/img/social_media/facebook.png" alt="resim yok"></a>
                         <a target="_blank" a href="<?php echo $fetch_m['linkedin'] ?>" title="Linkedin">
-                        <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="img/social_media/linkedin.png" alt="resim yok"></a>
+                        <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="./assets/img/social_media/linkedin.png" alt="resim yok"></a>
                         <a target="_blank" a href="<?php echo $fetch_m['github'] ?>" title="Github">
-                        <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="img/social_media/github.png" alt="resim yok"></a>
+                        <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="./assets/img/social_media/github.png" alt="resim yok"></a>
                         <a target="_blank" a href="<?php echo $fetch_m['discord'] ?>" title="Discord">
-                        <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="img/social_media/discord.png" alt="resim yok"></a>
+                        <img class="sosyal-medya" style="width: 44px; margin: 8px;" src="./assets/img/social_media/discord.png" alt="resim yok"></a>
                     </div>
                     <div class="col-sm-6">
                         <div class="promo-block-img-wrap">
-                            <img class="promo-block-img img-responsive" style="width: 360px ;" src="img/mockup/avatar-01.png" align="Avatar">
+                            <img class="promo-block-img img-responsive" style="width: 360px ;" src="./assets/img/mockup/avatar-01.png" align="Avatar">
 
                         </div>
                     </div>
@@ -131,7 +131,7 @@ $fetch_c = $fetch_contact->fetch(PDO::FETCH_ASSOC);
             <div class="container content-lg">
                 <div class="row" >
                     <div class="col-sm-5 sm-margin-b-60"  style="padding-left: -100px;">
-                        <img class="full-width img-responsive" src="img/500x700/01.jpg"  alt="Image">
+                        <img class="full-width img-responsive" src="./assets/img/500x700/01.jpg"  alt="Image">
                     </div>
                     <div class="col-sm-7">
                         <div class="section-seperator margin-b-50">
@@ -141,7 +141,7 @@ $fetch_c = $fetch_contact->fetch(PDO::FETCH_ASSOC);
                                     <p><?php echo $fetch_s['cv_title'] ?></p>
                                     <p></p>
                                 </div>
-                                <a target="_blank" a href="./img/cv/Şenol ÇAVDAR CV.pdf" class="btn-theme btn-theme-md btn-default-bg text-uppercase">CV'M İNDİR</a>
+                                <a target="_blank" a href="./assets/img/cv/Şenol ÇAVDAR CV.pdf" class="btn-theme btn-theme-md btn-default-bg text-uppercase">CV'M İNDİR</a>
                             </div>
                         </div>
 
@@ -174,7 +174,7 @@ $fetch_c = $fetch_contact->fetch(PDO::FETCH_ASSOC);
         <!-- End About -->
 
         <!-- Promo Banner -->
-        <div class="promo-banner parallax-window" data-parallax="scroll" data-image-src="img/1920x1080/3.jpg" style="padding-top: 200px">
+        <div class="promo-banner parallax-window" data-parallax="scroll" data-image-src="./assets/img/1920x1080/01.jpg" style="padding-top: 200px">
             <div class="container-sm content-lg" >
                 <h2 class="promo-banner-title"></h2>
                 <p class="promo-banner-text"></p>
@@ -222,7 +222,7 @@ $fetch_c = $fetch_contact->fetch(PDO::FETCH_ASSOC);
             <div class="content container">
                 <div class="row">
                     <div class="col-xs-6">
-                        <img class="footer-logo" style="width: 120px; padding: -50px ; margin-top: 15px;" src="img/logo.png" alt="resim yok">
+                        <img class="footer-logo" style="width: 120px; padding: -50px ; margin-top: 15px;" src="./assets/img/logo.png" alt="resim yok">
                     </div>
                     <div class="col-xs-6 text-right sm-text-left" style="margin-top: 38px">
                         <p class="margin-b-0"><a class="fweight-700" ><?php echo $fetch_m['main_title'] ?> <?php echo $fetch_m['main_title2'] ?></a></p>
@@ -238,24 +238,24 @@ $fetch_c = $fetch_contact->fetch(PDO::FETCH_ASSOC);
 
         <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- CORE PLUGINS -->
-        <script src="vendor/jquery.min.js" type="text/javascript"></script>
-        <script src="vendor/jquery-migrate.min.js" type="text/javascript"></script>
-        <script src="vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="./assets/vendor/jquery.min.js" type="text/javascript"></script>
+        <script src="./assets/vendor/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="./assets/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
         <!-- PAGE LEVEL PLUGINS -->
-        <script src="vendor/jquery.easing.js" type="text/javascript"></script>
-        <script src="vendor/jquery.back-to-top.js" type="text/javascript"></script>
-        <script src="vendor/jquery.smooth-scroll.js" type="text/javascript"></script>
-        <script src="vendor/jquery.wow.min.js" type="text/javascript"></script>
-        <script src="vendor/jquery.parallax.min.js" type="text/javascript"></script>
-        <script src="vendor/jquery.appear.js" type="text/javascript"></script>
-        <script src="vendor/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+        <script src="./assets/vendor/jquery.easing.js" type="text/javascript"></script>
+        <script src="./assets/vendor/jquery.back-to-top.js" type="text/javascript"></script>
+        <script src="./assets/vendor/jquery.smooth-scroll.js" type="text/javascript"></script>
+        <script src="./assets/vendor/jquery.wow.min.js" type="text/javascript"></script>
+        <script src="./assets/vendor/jquery.parallax.min.js" type="text/javascript"></script>
+        <script src="./assets/vendor/jquery.appear.js" type="text/javascript"></script>
+        <script src="./assets/vendor/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
 
         <!-- PAGE LEVEL SCRIPTS -->
-        <script src="js/layout.min.js" type="text/javascript"></script>
-        <script src="js/components/progress-bar.min.js" type="text/javascript"></script>
-        <script src="js/components/swiper.min.js" type="text/javascript"></script>
-        <script src="js/components/wow.min.js" type="text/javascript"></script>
+        <script src="./assets/js/layout.min.js" type="text/javascript"></script>
+        <script src="./assets/js/components/progress-bar.min.js" type="text/javascript"></script>
+        <script src="./assets/js/components/swiper.min.js" type="text/javascript"></script>
+        <script src="./assets/js/components/wow.min.js" type="text/javascript"></script>
             
     </body>
     <!-- END BODY -->

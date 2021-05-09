@@ -40,7 +40,7 @@ $fetch = $fetch_skill->fetch(PDO::FETCH_ASSOC);
                   </button>
                   <strong>Hata!</strong>Bir sorunla karşılaşıldı.
                 </div>
-                <?php } elseif(@$_GET['update'] == 'no'){ ?>
+                <?php } elseif(@$_GET['update'] == 'ok'){ ?>
                 <div class="alert alert-success alert dismissible fade in" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>
                   </button>
@@ -79,6 +79,7 @@ $fetch = $fetch_skill->fetch(PDO::FETCH_ASSOC);
       <input type="file" name="cv" required="required" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
+  <hr>
   <div class="item form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Yetenekler Başlığı
     </label>
@@ -105,9 +106,6 @@ $fetch = $fetch_skill->fetch(PDO::FETCH_ASSOC);
       <input type="text"  name="third_skill" value='<?php echo $fetch['third_skill'] ?>' required="required" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
-
-  <hr>
-
   <div class="item form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">1.Yetenek Sayacı </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
