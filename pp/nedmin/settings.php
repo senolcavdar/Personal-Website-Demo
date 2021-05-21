@@ -53,20 +53,20 @@ $fetch = $fetch_settings->fetch(PDO::FETCH_ASSOC);
             </div>
           <?php } ?>
           <?php if (@$_GET['updatepass'] == 'no'){?>
-            <div class="alert alert-danger alert-dismissible fade in" role="alert"  style="width: 400px; font-size: 15px; margin-top: -10px; margin-bottom: 25px;">
+            <div class="alert alert-danger alert-dismissible fade in" role="alert"  >
                     <strong>Hata!</strong>  Girilen şifre eski şifre ile aynı!
                     <button type="button" style="margin-top: 3px;" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
                     </button>
         </div>
         <?php } elseif(@$_GET['updatepass'] == 'hasadmin'){?>
-            <div class="alert alert-danger alert-dismissible fade in" role="alert"  style="width: 400px; font-size: 15px; margin-top: -10px; margin-bottom: 25px;">
+            <div class="alert alert-danger alert-dismissible fade in" role="alert"  >
                     <strong>Hata!</strong>  Bu kayıt mevcut.
                     <button type="button" style="margin-top: 3px;" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
                     </button>
         </div> 
 
         <?php } elseif (@$_GET['updatepass'] == 'lowchar'){?>
-            <div class="alert alert-danger alert-dismissible fade in" role="alert"  style="width: 400px; font-size: 15px; margin-top: -10px; margin-bottom: 25px;">
+            <div class="alert alert-danger alert-dismissible fade in" role="alert"  >
                     <strong>Hata!</strong> Şifreniz 6 karakterden kısa.
                     <button type="button" style="margin-top: 3px;" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
                     </button>
@@ -74,7 +74,7 @@ $fetch = $fetch_settings->fetch(PDO::FETCH_ASSOC);
 
 
         <?php } elseif (@$_GET['updatepass'] == 'inequal'){ ?>
-            <div class="alert alert-danger alert-dismissible fade in" role="alert"  style="width: 400px; font-size: 15px; margin-top: -10px; margin-bottom: 25px;">
+            <div class="alert alert-danger alert-dismissible fade in" role="alert"  >
                     <strong>Hata!</strong> Yeni şifre ve yeni şifre tekrarı aynı değil.
                     <button type="button" style="margin-top: 3px;" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
                     </button>

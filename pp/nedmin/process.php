@@ -278,17 +278,33 @@ if(isset($_POST['update_settings'])){
     $logo = $_POST['logo'];
     $passnew = $_POST['passnew'];
     $rpassnew = $_POST['rpassnew'];
-    
-    $sorgu = $db -> prepare("SELECT * FROM user WHERE user_id=1 ");
+    $eskisifre = sha1('password');
+    $sorgu = $db -> prepare("SELECT * FROM user WHERE user_id=1 AND password='$eskisifre' ");
     $sifre = $sorgu -> execute();
-    $eskisifre = $sifre['password'];
     
-    if($eskisifre == $passnew){
+    $update_settings = $db -> prepare("UPDATE site_settings SET
+    site_title = '$site_title',
+    logo = '$logo' WHERE settings_id=1
+    ");
+    $update_se = $update_settings -> execute();
+    
+    if($eskisifre !== $passnew){
         if ($passnew == $rpassnew) {
             if (strlen($passnew) >=6) {
                 $passn = sha1($passnew);
                 $newpassword = $db->prepare("UPDATE user SET password='$passn' WHERE user_id=1 ");
                 $updatepass = $newpassword->execute();
+                if($updatepass) {
+                    if($update_se){
+                        header("Location: logout.php");
+                    }
+                    else {
+                        header("Location: settings.php?update_se=no");
+                    }
+                }
+                else {
+                    header("Location: settings.php?update_se=no");
+                }
             }
             else {
                 header("Location: settings.php?updatepass=lowchar");
@@ -301,18 +317,6 @@ if(isset($_POST['update_settings'])){
         header("Location: settings.php?updatepass=no");
     }
 
-
-    $update_settings = $db -> prepare("UPDATE site_settings SET
-    site_title = '$site_title',
-    logo = '$logo' WHERE settings_id=1
-    ");
-
-    $update_se = $update_settings -> execute();
-    if ($update_se and $updatepass) {
-        header("Location: logout.php");
-    } else {
-        header("Location: settings.php?update_se=no");
-    }
 }
 
 
