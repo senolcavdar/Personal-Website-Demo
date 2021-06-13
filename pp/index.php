@@ -206,7 +206,7 @@ $fetch_c = $fetch_contact->fetch(PDO::FETCH_ASSOC);
                         </div>
                         <div class="col-md-3 col-xs-6">
                             <h4>E-POSTA</h4>
-                            <a href="<?php echo $fetch_c['email'] ?>"><?php echo $fetch_c['email'] ?></a>
+                            <a href="mailto:<?php echo $fetch_c['email'] ?>"><?php echo $fetch_c['email'] ?></a>
                         </div>
                     </div>
                     <!--// end row -->
