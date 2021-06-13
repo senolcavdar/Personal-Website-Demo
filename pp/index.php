@@ -46,7 +46,7 @@ $fetch_c = $fetch_contact->fetch(PDO::FETCH_ASSOC);
         <link href="./assets/css/layout.min.css" rel="stylesheet" type="text/css"/>
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href=".assets/img/logo.png"/>
+        <link rel="shortcut icon" href="./assets/img/logo.png"/>
     </head>
     <!-- END HEAD -->
 
